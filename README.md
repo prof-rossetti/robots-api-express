@@ -16,6 +16,8 @@ atom .
 npm install
 ````
 
+### Application Configuration
+
 Add a .gitignore file:
 
 ```` sh
@@ -28,11 +30,15 @@ Add a `Procfile` file:
 web: node ./bin/www
 ````
 
+To use the nodemon development web server: in the `package.json` file, change `"start": "node ./bin/www"` to `"start": "nodemon ./bin/www"` (assuming you have already run `npm install nodemon -g` to install it globally on your development machine).
+
 Start a local web server:
 
 ```` sh
 DEBUG=my_app:* npm start
 ````
+
+### Application Deployment
 
 Check it out in a browser at localhost:3000. It says "Welcome to Express." Good enough to deploy. Configure a remote repository, then deploy.
 
@@ -44,3 +50,9 @@ heroku open
 ````
 
 It says "Welcome to Express." Success. Application Generation, Configuration, and Deployment. Not too hard.
+
+### Application Routing
+
+Time to configure routing to each of the API endpoints.
+
+Add new `DOCUMENTATION.md` file and describe GET request endpoints.
