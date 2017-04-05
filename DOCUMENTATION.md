@@ -10,7 +10,7 @@ The base URL for this version of the API is `https://southernct-443-robots-api.h
 
 #### List Robots
 
-Issue a GET request to `/robots` to retrieve an array of all robot records currently in the database.
+Issue a GET request to `/robots.json` to retrieve an array of all robot records currently in the database.
 
 Example response:
 
@@ -24,7 +24,7 @@ Example response:
 
 #### Show Robot
 
-Issue a GET request to `/robots/:id`, where `:id` is the robot's unique identifier, to retrieve an object representing the given robot.
+Issue a GET request to `/robots/:id`.json, where `:id` is the robot's unique identifier, to retrieve an object representing the given robot.
 
 Example response:
 
