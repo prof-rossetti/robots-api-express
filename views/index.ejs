@@ -6,6 +6,19 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to the <%= title %></p>
+
+    <h3>API Endpoints</h3>
+    <ul>
+      <li>List Robots <a href="/api/robots.json">/api/robots.json</a></li>
+      <li>Show Robot <a href="/api/robots/1.json">/api/robots/:id.json</a></li>
+    </ul>
+
+    <footer>
+      <p>
+        <a href="https://southernct-443-robots-api.herokuapp.com/">view</a> |
+        <a href="https://github.com/prof-rossetti/robots-api-express/">source</a>
+      </p>
+    </footer>
   </body>
 </html>
