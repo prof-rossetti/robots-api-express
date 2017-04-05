@@ -4,7 +4,7 @@ This API serves data in JSON format. The current production environment base URL
 
 The current API version is indicated in the `package.json` file. This project follows semantic versioning.
 
-The base URL for this version of the API is `https://southernct-443-robots-api.herokuapp.com/api/v0`.
+The base URL for this version of the API is `https://southernct-443-robots-api.herokuapp.com/api/`.
 
 ### `Robot` Endpoints
 
