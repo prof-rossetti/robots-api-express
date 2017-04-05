@@ -16,9 +16,33 @@ Example response:
 
 ```` json
 [
-  {"id":1, "name": "my bot", "description":"does stuff"},
-  {"id":2, "name": "other bot", "description":"does other stuff"},
-  {"id":3, "name": "big bot", "description":"does big stuff"}
+  {
+    "_id":"58e487ad32ac2000f07acc4c",
+    "updated_at":"2017-04-05T05:59:09.694Z",
+    "created_at":"2017-04-05T05:59:09.694Z",
+    "name":"r2d2",
+    "description":"holds a secret message",
+    "in_stock":100,
+    "__v":0
+  },
+  {
+    "_id":"58e487ad32ac2000f07acc4d",
+    "updated_at":"2017-04-05T05:59:09.696Z",
+    "created_at":"2017-04-05T05:59:09.696Z",
+    "name":"bb8",
+    "description":"rolls around",
+    "in_stock":75,
+    "__v":0
+  },
+  {
+    "_id":"58e487ad32ac2000f07acc4b",
+    "updated_at":"2017-04-05T05:59:09.687Z",
+    "created_at":"2017-04-05T05:59:09.687Z",
+    "name":"c3po",
+    "description":"specializes in language translation",
+    "in_stock":50,
+    "__v":0
+  }
 ]
 ````
 
@@ -30,9 +54,13 @@ Example response:
 
 ```` json
 {
-  "id":1,
-  "name": "my bot",
-  "description":"does stuff"
+  "_id":"abc123def456kpwg0987",
+  "updated_at":"2017-04-05T05:59:09.696Z",
+  "created_at":"2017-04-05T05:59:09.696Z",
+  "name":"my bot",
+  "description":"does useful stuff",
+  "in_stock":325,
+  "__v":0
 }
 ````
 
