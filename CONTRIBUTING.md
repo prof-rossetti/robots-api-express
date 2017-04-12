@@ -12,7 +12,7 @@ cd robots-api-express/
 npm install
 ````
 
-### Usage
+### Development
 
 Seed the database:
 
@@ -24,4 +24,20 @@ Run a local web server:
 
 ```` sh
 npm run start
+````
+
+### Testing
+
+Run tests:
+
+```` sh
+npm run test:api --silent
+````
+
+### Deploying
+
+Deploy to the pre-configured Heroku application server:
+
+```` sh
+git push heroku master
 ````

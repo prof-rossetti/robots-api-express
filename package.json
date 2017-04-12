@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
+    "test:api": "NODE_ENV=test mocha test/api --recursive",
     "db:seed": "node db/seeds.js",
     "heroku-postbuild": "node db/seeds.js"
   },
@@ -16,5 +17,9 @@
     "mongoose": "^4.9.3",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
   }
 }
