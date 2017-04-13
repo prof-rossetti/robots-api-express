@@ -11,7 +11,7 @@ router.get('/api/robots.json', function(req, res, next) {
       res.setHeader('Content-Type', 'application/json')
       res.status(500).json("OOPS. SERVER ERROR.")
     } else {
-      console.log("LIST", robots.length, "ROBOTS:", robots)
+      console.log("LIST", robots.length, "ROBOTS")
       res.setHeader('Content-Type', 'application/json')
       res.status(200).json(robots.reverse())
     }
