@@ -20,10 +20,35 @@ router.get('/api/robots.json', function(req, res, next) {
 
 /* CREATE */
 
-router.post('/api/robots.json', function(req, res, next) {
-  res.setHeader('Content-Type', 'application/json')
-  res.status(200).json("TODO: CREATE")
+router.post('/api/robots', function(req, res, next) {
+  console.log("RECEIVED DATA", req.body)
+  const robotData = {name: req.body.name, description: req.body.description}
+
+  var robot = new Robot(robotData)
+  robot.save(function(saveErr, persistedRobot) {
+    if (saveErr){
+      res.setHeader('Content-Type', 'application/json')
+      res.status(400).json({message: saveErr, robotData: robotData})
+    } else {
+      res.setHeader('Content-Type', 'application/json')
+      res.status(201).json({message:"ROBOT CREATED", robot: persistedRobot})
+    }
+  })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* SHOW */
 
@@ -47,14 +72,14 @@ router.get('/api/robots/:id.json', function(req, res, next) {
 
 /* UPDATE */
 
-router.patch('/api/robots/:id.json', function(req, res, next) {
+router.patch('/api/robots/:id', function(req, res, next) {
   res.setHeader('Content-Type', 'application/json')
   res.status(200).json("TODO: UPDATE")
 })
 
 /* DESTROY */
 
-router.delete('/api/robots/:id.json', function(req, res, next) {
+router.delete('/api/robots/:id', function(req, res, next) {
   res.setHeader('Content-Type', 'application/json')
   res.status(200).json("TODO: DESTROY")
 })
