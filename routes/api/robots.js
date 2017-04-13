@@ -2,6 +2,16 @@ var express = require('express');
 var router = express.Router();
 var Robot = require("../../models/robot");
 
+// HANDLE PRE-FLIGHT REQUESTS
+// source: http://stackoverflow.com/a/7069902/670433
+router.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next()
+})
+
 /* LIST */
 
 router.get('/api/robots.json', function(req, res, next) {

@@ -7,7 +7,7 @@
   + http://expressjs.com/en/api.html#app.METHOD
   + http://restful-api-design.readthedocs.io/en/latest/methods.html
   + https://medium.com/@jeffandersen/building-a-node-js-rest-api-with-express-46b0901f29b6
-
+  + http://stackoverflow.com/a/7069902/670433
 
 > 200 — OK, The request was successful
 > 201 — CREATED, A new resource object was successfully created
