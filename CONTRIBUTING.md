@@ -20,8 +20,12 @@ Seed the database:
 npm run db:seed
 ````
 
-Run a local web server:
+Run a local web server on the default port (3000), or on a specific port (e.g. 3003):
 
 ```` sh
 npm run start
+
+# ... OR ...
+
+PORT=3003 npm run start
 ````

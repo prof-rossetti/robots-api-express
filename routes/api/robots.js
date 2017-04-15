@@ -2,21 +2,65 @@ var express = require('express');
 var router = express.Router();
 var Robot = require("../../models/robot");
 
-/* List Robots (GET) */
+// HANDLE PRE-FLIGHT REQUESTS
+// source: http://stackoverflow.com/a/7069902/670433
+router.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next()
+})
+
+/* LIST */
 
 router.get('/api/robots.json', function(req, res, next) {
   Robot.find( function (err, robots) {
     if (err) {
       console.log(err)
-      res.send("OOPS. SERVER ERROR.");
+      res.setHeader('Content-Type', 'application/json')
+      res.status(500).json("OOPS. SERVER ERROR.")
     } else {
-      console.log("LIST", robots.length, "ROBOTS:", robots);
-      res.send(robots.reverse());
+      console.log("LIST", robots.length, "ROBOTS")
+      res.setHeader('Content-Type', 'application/json')
+      res.status(200).json(robots.reverse())
     }
-  });
-});
+  })
+})
 
-/* Show Robot (GET) */
+/* CREATE */
+
+router.post('/api/robots', function(req, res, next) {
+  console.log("RECEIVED DATA", req.body)
+  const robotData = {name: req.body.name, description: req.body.description}
+
+  var robot = new Robot(robotData)
+  robot.save(function(saveErr, persistedRobot) {
+    if (saveErr){
+      res.setHeader('Content-Type', 'application/json')
+      res.status(400).json({message: saveErr, robotData: robotData})
+    } else {
+      res.setHeader('Content-Type', 'application/json')
+      res.status(201).json({message:"ROBOT CREATED", robot: persistedRobot})
+    }
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SHOW */
 
 router.get('/api/robots/:id.json', function(req, res, next) {
   console.log(req.params)
@@ -24,14 +68,30 @@ router.get('/api/robots/:id.json', function(req, res, next) {
 
   Robot.findById(robotId, function(err, robot) {
     if (err){
-      errorMessage = `OOPS. SERVER ERROR. Couldn't Show robot ${robotId}. ${err} Please double-check you are requesting a robot with a valid identifier. Try listing all robots to see some examples.`
+      errorMessage = `Couldn't find robot ${robotId}. Please double-check you are requesting a robot with a valid identifier. Try listing all robots to see some examples.`
       console.log(errorMessage)
-      res.send(errorMessage);
+      res.setHeader('Content-Type', 'application/json')
+      res.status(404).json(errorMessage)
     } else {
       console.log("SHOW ROBOT", robot);
-      res.send(robot);
-    };
-  });
-});
+      res.setHeader('Content-Type', 'application/json')
+      res.status(200).json(robot)
+    }
+  })
+})
+
+/* UPDATE */
+
+router.patch('/api/robots/:id', function(req, res, next) {
+  res.setHeader('Content-Type', 'application/json')
+  res.status(200).json("TODO: UPDATE")
+})
+
+/* DESTROY */
+
+router.delete('/api/robots/:id', function(req, res, next) {
+  res.setHeader('Content-Type', 'application/json')
+  res.status(200).json("TODO: DESTROY")
+})
 
 module.exports = router;
