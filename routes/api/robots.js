@@ -46,20 +46,6 @@ router.post('/api/robots', function(req, res, next) {
   })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* SHOW */
 
 router.get('/api/robots/:id.json', function(req, res, next) {
@@ -90,8 +76,31 @@ router.patch('/api/robots/:id', function(req, res, next) {
 /* DESTROY */
 
 router.delete('/api/robots/:id', function(req, res, next) {
-  res.setHeader('Content-Type', 'application/json')
-  res.status(200).json("TODO: DESTROY")
+  const robotId = req.params.id;
+
+  Robot.findById(robotId, function(err, robot) {
+    if(err){
+      const message = "Couldn't Find Robot"
+      console.log(message, robotId)
+      res.setHeader('Content-Type', 'application/json')
+      res.status(404).json({message: message, robotId: robotId})
+    } else {
+      robot.remove( function(rmErr, rmBot) {
+        console.log("RMBOT", rmBot)
+        if (rmErr) {
+          const message = "Couldn't Destroy Robot"
+          console.log(message, robotId)
+          res.setHeader('Content-Type', 'application/json')
+          res.status(500).json({message: message, robotId: robotId})
+        } else {
+          const message = "Destroyed Robot"
+          console.log(message, robotId)
+          res.setHeader('Content-Type', 'application/json')
+          res.status(200).json({message: message, robotId: robotId})
+        }
+      })
+    }
+  })
 })
 
 module.exports = router;
