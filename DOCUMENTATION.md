@@ -1,16 +1,32 @@
 ## API Documentation
 
-This API serves data in JSON format. The current production environment base URL is `https://southernct-443-robots-api.herokuapp.com/`.
+This API conforms to REST architecture principles, facilitating requests for "robot" and "order" resources. The API is configured to send and receive data in JSON format, and is available for use at https://southernct-443-robots-api.herokuapp.com.
 
-The current API version is indicated in the `package.json` file. This project follows semantic versioning.
+### Robot Endpoints
 
-The base URL for this version of the API is `https://southernct-443-robots-api.herokuapp.com/api/`.
+Each robot resource has the following data attributes:
 
-### `Robot` Endpoints
+name | datatype | example value
+--- | --- | ---
+`name` | String | "New Bot"
+`description` | String | "Does all the things!"
+`in_stock` | Integer | 75
+
+To perform operations on robot resources, issue requests to the following API endpoints:
+
+endpoint name | request method | URL path
+--- | --- | ---
+List Robots | GET | `/api/robots`
+Create Robot | POST | `/api/robots`
+Show Robot | GET | `/api/robots/:id`
+Update Robot | PUT | `/api/robots/:id`
+Destroy Robot | DELETE | `/api/robots/:id`
+
+Additional documentation on each of these endpoints is detailed below.
 
 #### List Robots
 
-Issue a GET request to `/robots.json` to retrieve an array of all robot records currently in the database.
+Issue a **GET** request to `/api/robots` to retrieve an array of all robot records currently in the database.
 
 Example response:
 
@@ -46,9 +62,21 @@ Example response:
 ]
 ````
 
+#### Create Robot
+
+Issue a **POST** request to `/api/robots` to create a new robot. The body of your request must provide a JSON object representing the robot to be created. Example request body:
+
+```` js
+{
+  name: "My Bot",
+  description: "Does all the things!",
+  in_stock:75
+}
+````
+
 #### Show Robot
 
-Issue a GET request to `/robots/:id`.json, where `:id` is the robot's unique identifier, to retrieve an object representing the given robot.
+Issue a **GET** request to `/api/robots/:id`, where `:id` is the robot's unique identifier, to retrieve an object representing the given robot.
 
 Example response:
 
@@ -64,20 +92,33 @@ Example response:
 }
 ````
 
-#### Destroy Robot
-
-TBA
-
-#### Create Robot
-
-TBA
-
 #### Update Robot
 
-TBA
+Issue a **PUT** request to `/api/robots/:id`, where `:id` is the robot's unique identifier, to update that robot's attributes. The body of your request must provide a JSON object representing the desired values for all robot attributes. Example request body:
 
-<hr>
+```` js
+{
+  name: "My Renamed Bot",
+  description: "Does different things!",
+  in_stock: 50
+}
+````
 
-### `Order` Endpoints
+#### Destroy Robot
+
+Issue a **DELETE** request to `/api/robots/:id`, where `:id` is the robot's unique identifier, to delete the corresponding robot record from the database.
+
+
+
+
+
+
+
+
+
+
+
+
+### Order Endpoints
 
 TBA

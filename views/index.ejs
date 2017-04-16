@@ -8,11 +8,42 @@
     <h1><%= title %></h1>
     <p>Welcome to the <%= title %></p>
 
-    <h3>API Endpoints</h3>
-    <ul>
-      <li>List Robots <a href="/api/robots.json">/api/robots.json</a></li>
-      <li>Show Robot <code>/api/robots/:id.json</code></li>
-    </ul>
+    <h2><a href="https://github.com/prof-rossetti/robots-api-express/blob/master/DOCUMENTATION.md">API Documentation</a></h2>
+
+    <h2>API Endpoints</h2>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Request Method</th>
+        <th>Request Endpoint</th>
+      </tr>
+      <tr>
+        <td>List Robots</td>
+        <td>GET</td>
+        <td>/api/robots</td>
+      </tr>
+      <tr>
+        <td>Create Robot</td>
+        <td>POST</td>
+        <td>/api/robots/</td>
+      </tr>
+      <tr>
+        <td>Show Robot</td>
+        <td>GET</td>
+        <td>/api/robots/:id</td>
+      </tr>
+      <tr>
+        <td>Update Robot</td>
+        <td>PUT</td>
+        <td>/api/robots/:id</td>
+      </tr>
+      <tr>
+        <td>Destroy Robot</td>
+        <td>DELETE</td>
+        <td>/api/robots/:id</td>
+      </tr>
+    </table>
 
     <footer>
       <p>
