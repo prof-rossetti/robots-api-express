@@ -14,7 +14,7 @@ router.use(function(req, res, next) {
 
 /* LIST */
 
-router.get('/api/robots.json', function(req, res, next) {
+router.get('/api/robots', function(req, res, next) {
   Robot.find( function (err, robots) {
     if (err) {
       console.log(err)
@@ -48,7 +48,7 @@ router.post('/api/robots', function(req, res, next) {
 
 /* SHOW */
 
-router.get('/api/robots/:id.json', function(req, res, next) {
+router.get('/api/robots/:id', function(req, res, next) {
   console.log(req.params)
   const robotId = req.params.id
 
