@@ -1,8 +1,10 @@
-## API Documentation
+# API Documentation
 
-This API conforms to REST architecture principles, facilitating requests for "robot" and "order" resources. The API is configured to send and receive data in JSON format, and is available for use at https://southernct-443-robots-api.herokuapp.com.
+This API conforms to REST architecture principles, facilitating requests for "robot" resources. The API is configured to send and receive data in JSON format, and is available for use at https://southernct-443-robots-api.herokuapp.com.
 
-### Robot Endpoints
+## Robots
+
+### Robot Resources
 
 Each robot resource has the following data attributes:
 
@@ -11,6 +13,8 @@ name | datatype | example value
 `name` | String | "New Bot"
 `description` | String | "Does all the things!"
 `in_stock` | Integer | 75
+
+### Robot Endpoints
 
 To perform operations on robot resources, issue requests to the following API endpoints:
 
@@ -107,18 +111,3 @@ Issue a **PUT** request to `/api/robots/:id`, where `:id` is the robot's unique 
 #### Destroy Robot
 
 Issue a **DELETE** request to `/api/robots/:id`, where `:id` is the robot's unique identifier, to delete the corresponding robot record from the database.
-
-
-
-
-
-
-
-
-
-
-
-
-### Order Endpoints
-
-TBA
