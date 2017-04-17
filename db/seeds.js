@@ -2,9 +2,9 @@ var db = require("../db"); // starts a mongoose connection
 var Robot = require("../models/robot");
 
 var exampleRobots = [
-  {name:"c3po", description:"specializes in language translation"},
-  {name:"r2d2", description:"holds a secret message"},
-  {name:"bb8",  description:"rolls around"}
+  {name:"c3po", description:"specializes in language translation", in_stock: 100},
+  {name:"r2d2", description:"holds a secret message", in_stock: 100},
+  {name:"bb8",  description:"rolls around", in_stock: 100}
 ];
 
 // Find all the robots.

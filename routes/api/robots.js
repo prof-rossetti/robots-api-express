@@ -34,6 +34,11 @@ function findRobot(req, res, next) {
   })
 }
 
+function parseRobotData(requestBody) {
+  console.log("REQUEST BODY", requestBody)
+ return {name: requestBody.name, description: requestBody.description, in_stock: requestBody.in_stock}
+}
+
 /* LIST */
 
 router.get('/api/robots', function(req, res) {
@@ -51,8 +56,7 @@ router.get('/api/robots', function(req, res) {
 /* CREATE */
 
 router.post('/api/robots', function(req, res) {
-  console.log("REQUEST BODY", req.body)
-  const robotData = {name: req.body.name, description: req.body.description}
+  const robotData = parseRobotData(req.body)
 
   var robot = new Robot(robotData)
   robot.save(function(saveErr, persistedRobot) {
@@ -75,11 +79,12 @@ router.get('/api/robots/:id', findRobot, function(req, res) {
 router.put('/api/robots/:id', findRobot, function(req, res) {
   console.log("REQUEST BODY", req.body)
   const robotId = req.params.id
-  const robotData = {name: req.body.name, description: req.body.description}
+  const robotData = parseRobotData(req.body)
   const robot = req.robot
 
   robot.name = robotData.name
   robot.description = robotData.description
+  robot.in_stock = robotData.in_stock
 
   robot.save(function(saveErr, persistedRobot) {
     if (saveErr){
