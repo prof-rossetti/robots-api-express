@@ -15,6 +15,9 @@
 > 400 — BAD REQUEST, The request was malformed or invalid
 > 500 — INTERNAL SERVER ERROR, Unknown server error has occurred
 
+  + https://expressjs.com/en/api.html#router
+  + https://expressjs.com/en/4x/api.html#res.set
+
 ## Testing
 
   + https://github.com/visionmedia/supertest

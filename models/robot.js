@@ -10,6 +10,10 @@ var RobotSchema = new Schema(
     description : {
       type: String,
       required: true
+    },
+    in_stock: {
+      type: Number,
+      required: true
     }
   },
   {
